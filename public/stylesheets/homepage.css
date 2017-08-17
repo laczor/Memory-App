@@ -3,7 +3,7 @@ body{
 	font-family: 'Permanent Marker', cursive;
 }
 html,body{
-	background: url("images/home_cards.jpg")  no-repeat center center fixed; 
+	background: url("../images/home_cards.jpg")  no-repeat center center fixed; 
 	width: 100%;
 	height: 100%;					/*So the image could cover the whole page.*/
 	font-family: "Lato" sans-serif;

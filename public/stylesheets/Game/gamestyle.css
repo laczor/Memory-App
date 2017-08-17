@@ -97,8 +97,12 @@ padding: 0;
 
 .game {
   -webkit-transform-style: preserve-3d;
-          transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  transform-style: preserve-3d;
   -webkit-perspective: 500px;
+  -moz-perspective:  500px;
           perspective: 500px;
   text-align: center;
   width: 100%;  
@@ -136,6 +140,7 @@ padding: 0;
   background-repeat: repeat;
   text-align: center;
   -webkit-perspective: 500px;
+  -moz-perspective:  500px;
           perspective: 500px;
   position: relative;
   cursor: pointer;
@@ -165,13 +170,19 @@ padding: 0;
   height: 100%;
   display: block;
   -webkit-transform-style: preserve-3d;
-          transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  transform-style: preserve-3d;
   -webkit-transition: .4s ease-in-out;
+   -moz-transition: -moz-transform .8s;
+  -moz-transform-origin: center center;
   transition: .4s ease-in-out;
 
 }
 .card .inside.picked, .card .inside.matched {
-  -webkit-transform: rotateY(180deg);
+          -webkit-transform: rotateY(180deg);
+          -moz-transform: rotateY(  -180deg  );
           transform: rotateY(180deg);
 }
 .card .inside.matched {
@@ -182,6 +193,7 @@ padding: 0;
 }
 .card .front, .card .back {
    -webkit-backface-visibility: hidden;
+   -moz-backface-visibility: hidden;
           backface-visibility: hidden;
   position: absolute;
   top: 0;
@@ -198,6 +210,7 @@ padding: 0;
 }
 .card .front {
   -webkit-transform: rotateY(-180deg);
+  -moz-transform: rotateY(  -180deg  );
           transform: rotateY(-180deg);
 }
 

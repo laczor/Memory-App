@@ -1,0 +1,254 @@
+<% include  partials/header %>   <!--relative file location   "../" means 1 folder back-->
+    <body>
+      <div id ="formid" class="col-lg-6 col-md-6 col-sm-8 col-xs-10 control-label col-lg-offset-3 col-md-offset-3 col-sm-offset-2 col-xs-offset-1">
+           <form action="/game/new" method="POST"> 
+                                <div class="col-lg-6 col-md-6 col-xs-10 control-label col-lg-offset-4 col-md-offset-3 col-sm-offset-3 col-xs-offset-1" >
+                                    <div class="form-group">
+                                          <label for="" class="control-label">Board size</label>
+                                          <div class="control-label">
+                                            <div class="btn-group" data-toggle="buttons">
+                                              <label class="btn btn-default">
+                                                <input type="radio" value=4 name="game[board_size]"/>
+                                                4x4
+                                              </label>
+                                              <label class="btn btn-default active">
+                                                <input type="radio" value=16 name="game[board_size]" checked/>
+                                                6x6
+                                              </label>
+                                              <label class="btn btn-default">
+                                                <input type="radio" value=32 name="game[board_size]"/>
+                                                8x8
+                                              </label>
+                                            </div>
+                                          </div>
+                                    </div>
+                                    
+                                        <div class="form-group">
+                                          <label for="" class="control-label">Number of players</label>
+                                          <div class="control-label">
+                                            <div class="btn-group players" data-toggle="buttons">
+                                              <label class="btn btn-default active">
+                                                <input class="player-button1" type="radio" value=1 name="game[players_number]" checked/>
+                                                1
+                                              </label>
+                                              <label class="btn btn-default">
+                                                <input class="player-button2" type="radio" value=2 name="game[players_number]"/>
+                                                2
+                                              </label>
+                                              <label class="btn btn-default">
+                                                <input class="player-button3" type="radio" value=3 name="game[players_number]"/>
+                                                3
+                                              </label>
+                                              <label class="btn btn-default">
+                                                <input class="player-button4" type="radio" value=4 name="game[players_number]"/>
+                                                4
+                                              </label>
+                                            </div>
+                                            
+                                           <div class="player-input" >
+                                                  <span>
+                                                    <b>*(Max 8 char)</b>
+                                                  </span>
+                                                   <span>
+                                                    <b id="warning-long"> Too long :(</b>
+                                                  </span> 
+                                            </div>
+                                            
+                                            <div class="player-input" id="player1">
+                                                <div class="col-lg-6 col-md-5 col-sm-5 col-xs-6">
+                                                      <input class="form-control" type="text" value="Player1" name="game[player_name1]">
+                                                </div>
+                                            </div>
+                                            <div class="player-input" id="player2">
+                                                <div class="col-lg-6 col-md-5 col-sm-5 col-xs-6">
+                                                      <input class="form-control" type="text" placeholder="Player2" value="" name="game[player_name2]">
+                                                </div>
+                                            </div>
+                                            <div class="player-input" id="player3">
+                                                <div class="col-lg-6 col-md-5 col-sm-5 col-xs-6">
+                                                      <input class="form-control" type="text" placeholder="Player3" value="" name="game[player_name3]">
+                                                </div>
+                                            </div>                                            
+                                             <div class="player-input" id="player4">
+                                                <div class="col-lg-6 col-md-5 col-sm-5 col-xs-6">
+                                                      <input class="form-control" type="text" placeholder="Player4" value="" name="game[player_name4]" >
+                                                </div>
+                                            </div>                                           
+                                            
+                                          </div>
+                                        </div>
+                                  </div>
+                                <div class="col-lg-6 col-md-6 col-sm-8 col-xs-10 control-label col-lg-offset-4 col-md-offset-3 col-sm-offset-3 col-xs-offset-1">
+                                        <label  for="" class="control-label"> Themes</label>
+                                        <div class="control-label">
+                                              <div data-toggle="buttons" class="inline">
+                                                  <label class="btn btn-default btn-theme active">
+                                                      <input type="radio" value="logos" name="game[theme_version]" checked/>
+                                                      <img src="/images/decks/logos/facebook.png" alt="Animals" width=50 height=50/>
+                                                      <div class="theme-title">Logos</div>
+                                                  </label>
+                                                  <label class="btn btn-default btn-theme">
+                                                        <input type="radio" value="animals" name="game[theme_version]"/>
+                                                        <img src="/images/decks/animals/wolf.png" alt="logos" width=50 height=50/>
+                                                        <div class="theme-title">Animals</div>
+                                                  </label>
+                                              </div>
+                                        </div>
+                                </div>
+                                <div class="col-lg-6 col-md-8 col-sm-8 col-xs-12 control-label col-lg-offset-4 col-md-offset-3 col-sm-offset-2">
+                                   <div class="row">
+                                         <div  id="options"><span>Extra Options</span>
+                                             		<span><i class="fa fa-info-circle fa-2x" aria-hidden="true" data-target="#myModal-rules" data-toggle="modal"></i></span>
+                                         </div>
+                                    </div>
+                                     <div class="row">
+                                          <span data-toggle="collapse" data-target="#collapseExample0" aria-expanded="false" aria-controls="collapseExample">
+                                              <div id="fadingButton" class="btn-group" data-toggle="buttons">
+                                                <label class="btn btn-default">
+                                                  <input type="hidden" value="false" name="game[fading]"/>         <!--to ensure a value is sent over, bind_fading() function is written -->
+                                                  Fading
+                                                </label>
+                                               </div>
+                                          </span>
+  
+                                          <span data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                                             <div id="flipping" class="btn-group" data-toggle="buttons">
+                                                <label class="btn btn-default">
+                                                  <input  type="checkbox"/>
+                                                  Flipping time
+                                                </label>
+                                              </div>
+                                          </span>
+                                          
+                                          <span data-toggle="collapse" data-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample">
+                                            <div id="timer" class="btn-group" data-toggle="buttons"> 
+                                              <label class="btn btn-default">
+                                                <input type="checkbox" />
+                                                Timer
+                                              </label>
+                                            </div>
+                                          </span>
+                                    </div>
+                              </div>
+                          <div class="col-lg-8 col-md-9 col-sm-8 col-xs-8 control-label col-lg-offset-4 col-md-offset-3 col-sm-offset-3 col-xs-offset-2">
+                                    <div class="row">
+                                          <div class="form-group">
+                                              <div class="collapse" id="collapseExample0">
+                                            				<span>
+                                            				  <b id="fading_text">*Fading is on!</b>
+                                            				</span>
+                                              </div>
+                                         </div>
+                                       
+                                        <div class="collapse" id="collapseExample">
+                                            <div class="row">
+                                            </div>
+                                              <div class="row">
+                                                <div class="col-lg-7 col-md-6 col-sm-6 col-xs-11">
+                                              				<span>
+                                              				  <b>*(Seconds)</b>
+                                              				</span>
+                                              			<div class="input-group number-spinner1">
+                                              				<span class="input-group-btn data-dwn">
+                                              					<button type="button" class="btn btn-default btn-info" data-dir="dwn"><span class="glyphicon glyphicon-minus"></span></button>
+                                              				</span>
+                                              				<input type="number" class="form-control text-center flip" value=1 min="1" max="5" readonly="readonly" name="game[flipping_time]">
+                                              				<span class="input-group-btn data-up">
+                                              					<button  type="button" class="btn btn-default btn-info" data-dir="up"><span class="glyphicon glyphicon-plus"></span></button>
+                                              				</span>
+                                              			</div>
+                                                </div>
+                                              </div>
+                                          </div>
+                                           
+                                           <div class="collapse" id="collapseExample2">
+                                                  <div class="row">
+                                                      <div  class="col-lg-7 col-md-6 col-sm-6 col-xs-11">
+                                                  			  <span>
+                                                				     <b>*(Minutes)</b>
+                                                				  </span>
+                                                  			<div class="input-group number-spinner2">
+                                                    				<span class="input-group-btn data-dwn">
+                                                    					    <button type="button" class="btn btn-default btn-info" data-dir="dwn"><span class="glyphicon glyphicon-minus"></span></button>
+                                                    				</span>
+                                                    				 <input type="number" class="form-control text-center time" value="0" min="0" max="10" readonly="readonly" name="game[timer]">
+                                                    				<span class="input-group-btn data-up">
+                                                    					    <button type="button" class="btn btn-default btn-info" data-dir="up"><span class="glyphicon glyphicon-plus"></span></button>
+                                                    				</span>
+                                                  			</div>
+                                                    	</div>
+                                                  </div>
+                                             </div>
+                                             
+                                          </div>
+                                 </div>
+                        </div>  <!--closing formid-->
+                                   
+                        <div  class="row">
+                              <div class="col-lg-4 col-md-4 col-sm-8 col-xs-10 text-center col-lg-offset-4 col-md-offset-4 col-sm-offset-2 col-xs-offset-1 ">
+                                    <div>
+                                       <input id="startingButton" class="custom-buttom" type="submit" value="Start Game!">
+                                    </div>
+                               </div>
+                        </div>
+            </form>
+          
+                                   
+                              <!--Creating modal for the rules button-->
+                                        <div class="modal fade" id="myModal-rules" tabindex="-1" role="dialog" aria-labelledby="myModal-rules" aria-hidden="true">
+                                          <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                              <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                  <span aria-hidden="true">&times;</span>
+                                                </button>
+                                                <h3 class="modal-title" id="myModalExtra">Extra settings to make it fun!</h3>
+                                              </div>
+                                              
+                                              <div class="modal-body">
+                                                  <div class="row">
+                                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8 col-lg-offset-2">
+                                                      <h2>Fading</h3>
+                                                      <div class="thumbnail">
+                                                        <img src="/images/fading.gif" alt="fading gif animation">
+                                                          <p class="text">The matched cards will fade away.</p>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                 <div class="row">
+                                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8 col-lg-offset-2">
+                                                      <h2>Timer</h3>
+                                                      <div class="thumbnail">
+                                                        <img src="/images/timer.gif" alt="fading gif animation">
+                                                          <p class="text">Custom time can be set.</p>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                  <div class="row">
+                                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8 col-lg-offset-2">
+                                                      <h2>Flipping Time</h3>
+                                                      <div class="thumbnail">
+                                                        <img src="/images/flipping_time.gif" alt="flipping time">
+                                                          <p class="text">You can set how long you want to see the flipped cards.</p>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                              <div class="modal-footer">
+                                                <button id="modal_close" type="button" class="btn btn-lg btn-secondary" data-dismiss="modal">Close</button>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+        </body>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.1.1/js/tether.min.js"></script>
+     
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-touchspin/3.0.3/jquery.bootstrap-touchspin.min.js"></script>         <!--Jquery plugin for the smooth number spinning at timer + flipping time settings -->      
+    <script type="text/javascript" src="/js/new-game-spinning.js"> </script>                                                           <!-- Custom form validation, with spinning enabling javascript-->
+    
+<% include  partials/footer %>      

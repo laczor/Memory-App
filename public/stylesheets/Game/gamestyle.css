@@ -1,0 +1,329 @@
+
+html, body {
+min-height: 100%;
+background: #C9D6FF no-repeat center fixed;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to left, #E2E2E2, #C9D6FF) no-repeat center fixed;  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left, #E2E2E2, #C9D6FF) no-repeat center fixed; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  font-family: 'Permanent Marker', cursive;
+}
+.wrap {
+  float: right;
+  position: relative;
+  text-align: center;
+  width: 100%;
+  padding-top: 5px;
+}
+
+.score-table{
+  padding: 1px 0px 0px 2.5vw;
+  display: block;
+  width: 100%;
+  text-align: left;
+  font-size: 3vw;
+}
+.score{
+  padding: 5px 0px 5px 0px;
+  margin: auto;
+}
+
+.score.players{
+  border-radius: 20px;
+  border: 3px grey inset;
+  padding: 5px;
+  -webkit-box-shadow: 1px 0px 16px 5px rgb(139,153,181);
+  -moz-box-shadow: 1px 0px 16px 5px rgb(139,153,181);
+  box-shadow: 1px 0px 16px 5px rgb(139,153,181);
+}
+
+.players .divider{
+  margin: 0;
+  padding: 0;
+  border-bottom: 2px grey solid;
+}
+#main_divider{
+  margin: 10px 0 0 0;
+  padding: 0;
+}
+.fa.fa-users{
+  width:1vw;
+  height:1vw;
+  padding-left: 5px;
+  padding-bottom: 3px;
+}
+.score .player-number {
+  padding: 0px 0px 1vw 1vw;
+  text-align: left;
+}
+
+.score.kombo, #kombo, .score.points,#points{
+padding: 0;
+}
+
+#score_data{
+  padding: 3px 2px 0 5px;
+  margin-top: 10px;
+  border-radius: 20px;
+  border: 3px grey inset;
+  -webkit-box-shadow: 1px 0px 16px 5px rgba(161,209,180,1);
+  -moz-box-shadow: 1px 0px 16px 5px rgba(161,209,180,1);
+  box-shadow: 1px 0px 16px 5px rgba(161,209,180,1);
+}
+
+.activePlayer{
+  background: #78f593;
+  background-image: -webkit-linear-gradient(top, #78f593, #54cc74);
+  background-image: -moz-linear-gradient(top, #78f593, #54cc74);
+  background-image: -ms-linear-gradient(top, #78f593, #54cc74);
+  background-image: -o-linear-gradient(top, #78f593, #54cc74);
+  background-image: linear-gradient(to bottom, #78f593, #54cc74);
+  -webkit-border-radius: 14;
+  -moz-border-radius: 14;
+  border-radius: 14px;
+  text-shadow: 0px 2px 6px #524452;
+  color: #000000;
+  font-size: 20px;
+  padding: 0px 1.5vw 1vw 2px;
+  text-decoration: none;
+  font-size: 1.1em;
+  margin-top: 1px;
+  text-align: left;
+  width: 105%;
+  
+}
+.passivePlayer{
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+.game {
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-perspective: 500px;
+          perspective: 500px;
+  text-align: center;
+  width: 100%;  
+}
+
+/*Include matchanimation with keyframe*/
+@-webkit-keyframes matchAnim {
+  0% {
+    background: #bcffcc;
+    border-radius:10%;
+  }
+  100% {
+    background: #9b9fa5;
+    border-radius:10%;
+  }
+}
+
+@keyframes matchAnim {
+  0% {
+    background: #bcffcc;
+    border-radius:10%;
+  }
+  100% {
+    background: #9b9fa5;
+    border-radius:10%;
+  }
+}
+
+.card {
+  display: inline-block;
+  border: 1px solid black;
+  border-radius:10%;
+  background: #a0b2d6;
+  background-position: left top;
+  background-repeat: repeat;
+  text-align: center;
+  -webkit-perspective: 500px;
+          perspective: 500px;
+  position: relative;
+  cursor: pointer;
+  z-index: 50;
+  -webkit-tap-highlight-color: transparent;
+
+}
+
+.card.game4X4 {
+  width: 20%;
+  height: 10vw;
+  margin: 3px;
+}
+.card.game6X6 {
+  width: 9%;
+  height: 6vw;
+  margin: 1px;
+}
+.card.game8X8 {
+  width: 7%;
+  height: 5vw;
+  margin: 1px;
+}
+
+.card .inside {
+  width: 100%;
+  height: 100%;
+  display: block;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transition: .4s ease-in-out;
+  transition: .4s ease-in-out;
+
+}
+.card .inside.picked, .card .inside.matched {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+.card .inside.matched {
+  -webkit-animation: 1s matchAnim ease-in-out;
+          animation: 1s matchAnim ease-in-out;
+  -webkit-animation-delay: .4s;
+          animation-delay: .4s;
+}
+.card .front, .card .back {
+   -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.card .front img, .card .back img {
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+  max-height: 100%;
+
+}
+.card .front {
+  -webkit-transform: rotateY(-180deg);
+          transform: rotateY(-180deg);
+}
+
+.modal-content{
+background: #ADA996;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to bottom, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to bottom, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+.modal-body .divider{
+  width: 100%;
+}
+#modtime0,#modtime1,#modtime2,#modtime3{
+  padding: 0 5px;
+}
+#modal-new,#modal-home,#modal-replay{
+  padding: 0 5px;
+  width: 102%;
+  margin: 0 auto;
+}
+#modal-new:hover,#modal-home:hover,#modal-new-pause:hover,#modal-continue:hover,#modal-new:active,#modal-home:active,#modal-new-pause:active,#modal-continue:active,#modal-new:focus,#modal-home:focus,#modal-new-pause:focus,#modal-continue:focus{
+  background: #a0b2d6;
+  box-shadow: 0 0.3vw #666;
+}
+#modal-new a,#modal-home a,#modal-replay a{
+  text-decoration: none;
+  color: black;
+}
+#stop,#pause{
+  width: 100%;
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  font-size: 3vw;
+  background: rgb(139,153,181);
+  text-decoration: none;
+}
+
+#stop:hover,#pause:hover,#stop:focus,#pause:focus {
+      color: black;
+      text-decoration: none;
+}
+#stop:active,#pause:active{
+  box-shadow: 0 0.3vw #666;
+  transform: translateY(4px);
+}
+
+#myModal.row.buttons.col{
+  padding: 0;
+}
+#modal-new-pause,#modal-continue{
+  padding: 0 5px;
+  width: 104%;
+  margin: 0 auto;
+}
+#modal-new-pause a{
+  text-decoration: none;
+  color:black;
+}
+
+#modal-home{
+float: right;
+}
+#myModalLabel{
+  width: 80%;
+  display: inline-block;
+  text-align: center;
+}
+.fa.fa-trophy.fa-2x.modal-icon{
+  width: 5%;
+}
+#modal-header-div{
+  width: 90%;
+  margin: 0 auto;
+}
+
+#author{
+  font-size: 2vw;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .card.game4X4 {
+    width: 20%;
+    height: 14vw;
+    margin: 3px;
+   }
+   .card.game6X6{
+    width: 18%;
+    height: 12vw;
+   }
+   .card.game8X8 {
+    width: 12%;
+    height: 10vw;
+    margin: 0.5px;
+   }
+}
+
+@media (max-width: 800px) {
+  .card .front {
+    padding: 3px;
+  }
+}
+@media (max-width: 800px) {
+  .card .back {
+    padding: 3px;
+  }
+}
+
+@media (max-width: 767px) {
+  footer .disclaimer {
+    font-size: 8px;
+  }
+}
+@media (min-width: 770px) {
+   #score_players .row {
+    line-height: 23px;
+    font-size: 75%;
+    margin-top: 0.3vw;
+  }
+  #score_players #stop,#score_players #pause{
+    height: 35px;
+    font-size: 20px;
+    padding: 0;
+  }
+  .players .divider{
+  padding: 0 0 5px 0;
+  }
+}

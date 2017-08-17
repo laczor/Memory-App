@@ -1,0 +1,84 @@
+body{
+	font-family: "Lato" sans-serif;
+	font-family: 'Permanent Marker', cursive;
+}
+html,body{
+	background: url("http://www.hdwallpaper.nu/wp-content/uploads/2017/01/card-11.jpg")  no-repeat center center fixed; 
+	width: 100%;
+	height: 100%;					/*So the image could cover the whole page.*/
+	font-family: "Lato" sans-serif;
+}
+#content {
+	text-align:center;	
+	padding-top: 7vw;    /*to make it more responsive.*/
+	text-shadow: 0px 6px 5px #f3f4f8;
+	color: black;
+}
+#content .row{
+	 padding: 4vw;
+	 -moz-box-shadow: inset -1px -1px 36px 0px rgba(0,0,0,0.61);
+	  box-shadow: inset -1px -1px 36px 0px rgba(0,0,0,0.61);
+	  border-radius: 25px;
+	  border: 2px black dotted;
+	  background: #4CA1AF;  /* fallback for old browsers */
+	  background: -webkit-linear-gradient(to right, #C4E0E5, #4CA1AF);  /* Chrome 10-25, Safari 5.1-6 */
+	  background: linear-gradient(to right, #C4E0E5, #4CA1AF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	  opacity: 0.9;
+}
+h1{
+	text-align:center;	
+	font-weight: 700;
+	font-size: 5.5vw;
+	color: black;
+	text-shadow: 0px 6px 5px #f3f4f8;
+	
+}
+hr{
+	border-top: 1px solid #f8f8f8;
+	border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+
+#btn {
+background-color: #f3f4f8;
+}
+
+#btn{
+  height: 8vw;
+  padding: 5px;
+  font-size: 3.4vw;
+  font-family: 'Permanent Marker', cursive;
+  margin-top: 2vw;
+  -webkit-box-shadow: inset -1px -1px 36px 0px rgba(0,0,0,0.61);
+  -moz-box-shadow: inset -1px -1px 36px 0px rgba(0,0,0,0.61);
+  box-shadow: inset -1px -1px 36px 0px rgba(0,0,0,0.61);
+  border-radius: 25px;
+  border: 2px black dotted;
+   
+  background: #4CA1AF;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #C4E0E5, #4CA1AF);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #C4E0E5, #4CA1AF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  opacity: 0.9;
+}
+#btn> a, #btn > a:visited {
+      color: white;
+      text-decoration: none;
+}
+#btn > a:hover,#btn > a:hover,#btn:hover{
+	background:#bddce2;
+      color: black;
+      text-decoration: none;
+      
+}
+#btn:active{
+  box-shadow: 0 0.3vw #666;
+  transform: translateY(4px);
+}
+
+@media (max-width: 600px) {
+   h1{
+	font-size:30px;
+   }
+   h3{
+	font-size:15px;
+   }
+  }

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Memory Game</title>
+<!--To make it mobile supported-->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet"> 					<!-- google font -->
+  <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> 					<!-- icon animationt -->
+  <link rel="stylesheet" href="/stylesheets/Game/animate.css">  															<!-- for number animations -->
+  <link rel="stylesheet" href="/stylesheets/Game/gamestyle.css">
+  
+  </head>
+
+<body>
+
+			<div class="score-table"> 
+					<div id="score_players" class="scoring score players"> 
+							<div class="row header players divider">
+								  <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 ">
+									<div>Players <i class="fa fa-users" aria-hidden="true"></i></div>
+								  </div>
+								  <div id="points" class="col-xs-2 col-sm-2 col-md-2 col-lg-2 points">Points</div>
+								  <div id="kombo" class="col-xs-2 col-sm-2 col-md-2 col-lg-2 kombo">Kombo</div>
+								  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 ">Flips</div>
+								  <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 ">Time</div>
+							</div>
+							<div class="row p0">
+							  <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 ">
+									<div id="p0" class="player-number">1</div>
+							  </div>
+							  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 ">
+							  		<div id="pp0" class="player-points">0</div>
+							  </div>
+							  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 ">
+							  		<div id="pk0" class="player-kombo">0</div>
+							  </div>
+							  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 ">
+							  		<div id="pf0" class="player-flips">0</div>
+							  </div>
+							  <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 ">
+										<span id="p0time">00:00</span>
+							  </div>
+							</div>
+							<div class="row p1">
+								  <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 ">
+										<div id="p1" class="player-number">1</div>
+								  </div>
+								  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 ">
+								  		<div id="pp1" class="player-points">0</div>
+								  </div>
+								  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 ">
+								  		<div id="pk1" class="player-kombo">0</div>
+								  </div>
+								  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 ">
+								  		<div id="pf1" class="player-flips">0</div>
+								  </div>
+								  <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 ">
+										<span id="p1time">00:00</span>
+								  </div>
+							</div>
+							<div class="row p2">
+								  <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 ">
+										<div id="p2" class="player-number">1</div>
+								  </div>
+								  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 ">
+								  		<div id="pp2" class="player-points">0</div>
+								  </div>
+								  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 ">
+								  		<div id="pk2" class="player-kombo">0</div>
+								  </div> 
+								  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 ">
+								  		<div id="pf2" class="player-flips">0</div>
+								  </div>
+								  <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 ">
+									<span id="p2time">00:00</span>
+								  </div>
+							</div>
+							<div class="row p3">
+								  <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 ">
+										<div id="p3" class="player-number">1</div>
+								  </div>
+								  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 ">
+								  		<div id="pp3" class="player-points">0</div>
+								  </div>
+								  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 ">
+								  		<div id="pk3" class="player-kombo">0</div>
+								  </div>
+								  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 ">
+								  		<div id="pf3" class="player-flips">0</div>
+								  </div>
+								  <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 ">
+										<span id="p3time">00:00</span>
+								  </div>
+							</div>
+				  			<div class="row buttons">
+								<div class="col-xs-3 col-sm-4 col-md-4 col-lg-4 ">
+								  </div>
+								<div class="col-xs-3 col-sm-2 col-md-2 col-lg-2 ">
+										<div><span class="btn btn-default score" id="stop" data-toggle="modal"  > Stop</span></div>
+								  </div>
+								  <div class="col-xs-3 col-sm-2 col-md-2 col-lg-2 ">
+										<div><span class="btn btn-default score" id="pause" data-toggle="modal" >Pause</span></div>
+								  </div>
+							</div>
+				  	</div>			
+					<hr id="main_divider" class="col-xs-12 col-sm-12 col-lg-12 divider">
+			</div>
+							
+				<div class="wrap">
+					<div class="game"></div>
+					<!-- Here js will generate the cards -->
+				</div>
+				
+<!-- Modal -->
+							<div class="modal fade" id="myModal" role="dialog" aria-labelledby="myModalLabel">
+							  <div class="modal-dialog" role="document">
+							    <div class="modal-content">
+							      <div class="modal-header">
+										<!-- Here js will generate the player's list. -->
+							      </div>
+							      <div class="modal-body">
+										<!-- Here js will generate the player's list. -->
+
+							      </div>
+							      <div class="modal-footer">
+										<!-- Here js will generate the player's list. -->
+							      </div>
+							    </div>
+							  </div>
+							</div>
+							<div id="author" >Icons made by <a title="Freepik" href="http://www.freepik.com">Freepik</a> from <a title="Flaticon" href="http://www.flaticon.com">www.flaticon.com</a>&nbsp;</div>
+				 <!--    <footer>-->
+					<!--</footer>-->
+
+       
+
+
+  		<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
+
+        <script type="text/javascript" src="/js/jquery.lettering-0.6.1.min.js"></script>									<!-- To use the letter.js animations -->
+        <script type="text/javascript" src="/js/jquery.textillate.js"></script>									<!-- To use the letter.js animations -->
+  		<script type="text/javascript" src="/js/decks.js"> </script>											<!-- seperate js file is created to store the array of pictures, until server is not setup-->
+  		<script type="text/javascript" src="/js/index.js"> </script>											<!-- This is where the whole javascript functionality is written-->
+
+        <script type="text/javascript">
+        //so hereby we are actually calling the startgame function, written in the index.js file, 
+        	var players = ["<%=player1%>", "<%=player2%>","<%=player3%>","<%=player4%>"];	
+            startgame("<%=theme%>", <%=size%>, players,<%=fading%>,<%=flipping%>,<%=timer%>);
+            	// cards: 			name of the array, which will be searched for in the deck array.
+				// size:. 			4x4,6x6,8x8, in order to determine how much card has to be selected + css modifications with special classes
+				// playersArray:  	an array to keep track of the names of the players.
+				// fading:       	boolean, to check if the cards should fadeout or not.
+				// fliptime:     	can choo se, the timeout for the flipping,(showing the previously flipped cards)
+				// time      		Extra function to add maximum time for the players.
+      </script>
+</body>
+</html>

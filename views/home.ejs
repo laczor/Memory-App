@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Memory Page</title>
+
+<!-- bootstrap link -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="stylesheets/homepage.css">
+<link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
+<meta name="viewport" content="width=device-width" initial-scale="1.0">  
+</head>
+    <body>
+
+<div class="container col-lg-10 col-md-11 col-sm-10 col-xs-10 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1">
+ 	<div class="row">
+ 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+			<div id="content"> 
+				<div class="row">	
+					<div class="col-lg-12">
+					<h1>Multiplayer Memory</h1>
+					<h3>The Online memory game</h3>
+					<hr>
+					<form action="/game/new">
+    						<input id="btn"  type="submit" value="Start a Game!">
+					</form>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>		
+</div>
+
+<!--From bootstrap javascript-->
+<script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<% include  partials/footer %>   <!--relative file location   "../" means 1 folder back-->    

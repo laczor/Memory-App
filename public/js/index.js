@@ -282,7 +282,7 @@ function startgame(cards,size,playersArray,fading,fliptime,time){
 			var idName = "#p" + this.playerTurn;										  										//Remove the activeplayer formatting
 			$(idName).removeClass("activePlayer");
 			clearInterval(this.interval);			-																			//Stop the previously initated interval timer
-			Memory.init(this.storedcards,this.size,this.storeplayersAarray,this.fading,this.fliptime/1000,this.timerTime)		//Start again the memory app, with the saved parameters, fliptime has to be decreased
+			Memory.init(this.storedcards,this.size,this.storeplayersAarray,this.fading,this.fliptime/1000,this.timerTime/60)		//Start again the memory app, with the saved parameters, fliptime has to be decreased
 		},
 
 //will shuffle the given deck, and pick the first selected elements 8,16,32 then duplicate it by creating a cardsarray
